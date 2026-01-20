@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:ChartThemeIssue.ViewModels"
         xmlns:mxc="https://schemas.eremexcontrols.net/avalonia/charts"
+        xmlns:mxe="https://schemas.eremexcontrols.net/avalonia/editors"
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
         x:Class="ChartThemeIssue.Views.DialogWindow"
         x:DataType="viewModels:DialogWindowViewModel"
@@ -20,13 +21,24 @@
                   SelectedItem="{Binding ThemeVariant}"
                   ItemsSource="{Binding ThemeVariants}" />
 
-        <StackPanel Orientation="Horizontal">
-            <mxc:CartesianChart Width="200"
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Spacing="8">
+            <StackPanel Orientation="Horizontal">
+                <mxc:CartesianChart Width="200"
+                                    Height="200" />
+                <mxc:PolarChart Width="200"
                                 Height="200" />
-            <mxc:PolarChart Width="200"
-                            Height="200" />
-            <mxc:SmithChart Width="200"
-                            Height="200" />
+                <mxc:SmithChart Width="200"
+                                Height="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <mxe:CheckEditor />
+                <mxe:ComboBoxEditor />
+                <mxe:DateEditor />
+                <mxe:HyperlinkEditor />
+            </StackPanel>
         </StackPanel>
     </DockPanel>
 </Window>
